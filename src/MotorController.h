@@ -8,24 +8,31 @@
 #ifndef MOTORCONTROLLER_H_
 #define MOTORCONTROLLER_H_
 
+#include <Arduino.h>
+
 namespace std {
 
 class MotorController {
 public:
 	MotorController();
+	MotorController(int, int, int, int, int, int);
+
 	virtual ~MotorController();
 
-	void forward(int, int);
-	void reverse(int, int);
-	void stop(char, char);
+	void motor(char, int);
+	void stop();
 
 private:
-	void motor(char, int);
 
 	int _leftMotor;
 	int _leftDirrection;
 	int _rightMotor;
 	int _rightDirrection;
+	int _enable;
+	int _fault;
+
+	char _currentLeftDirrection;
+	char _currentRightDirrection;
 };
 
 } /* namespace std */

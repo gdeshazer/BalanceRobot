@@ -9,11 +9,11 @@
 #define BALANCE_BOT_H_
 
 #include <Arduino.h>
-#include <math.h>
-#include <Wire.h>
 
-#include <I2Cdev.h>
-#include <MPU6050_6Axis_MotionApps20.h>
+#include "Accelerometer.h"
+#include "MotorController.h"
+
+using namespace std;
 
 
 //end of add your includes here
@@ -25,9 +25,6 @@ void setup();
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
-class IMUControl;
-class MotorControl;
 
 
 #endif /* BALANCE_BOT_H_ */
