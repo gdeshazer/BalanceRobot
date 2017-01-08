@@ -1,0 +1,10 @@
+README.txt
+arduino/*
+IncludedClasses/*
+Release/*
+KasV1_Code/*
+MPU6050_calibration.cpp.txt
+spec.d
+.project
+.cproject
+.settings
