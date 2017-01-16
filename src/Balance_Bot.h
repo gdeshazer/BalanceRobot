@@ -12,6 +12,8 @@
 
 #include "Accelerometer.h"
 #include "MotorController.h"
+#include "PidController.h"
+#include "SetTimer.h"
 
 using namespace std;
 
