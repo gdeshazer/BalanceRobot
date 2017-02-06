@@ -3,6 +3,8 @@
  *
  *  Created on: Jan 8, 2017
  *      Author: grantdeshazer
+ *
+ *  See cpp file for implementation notes
  */
 
 #ifndef PIDCONTROLLER_H_
@@ -17,11 +19,12 @@ public:
 	PidController();
 	virtual ~PidController();
 
-	double calculate(int, float, int);
+	double calculate(float, float, float);
+	void getPid(double[]);
 
 private:
-	Potentiometer kp;
-	Potentiometer ki;
+	Potentiometer kpPot;
+	Potentiometer kiPot;
 	//Potentiometer kd;
 
 

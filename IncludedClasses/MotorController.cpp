@@ -20,17 +20,20 @@ namespace std {
 /* Default Constructor:
  *
  * This constructor assumes which pins are default for motor control.
- * These valuse may not be correct for different boards.
+ * These values may not be correct for different boards.
  *
  * Initializes pinMode for each pin and sets default member variable values.
  *
  */
 MotorController::MotorController() {
 
-	_leftDirrection   = 7;
+
 	_leftMotor        = 9;
-	_rightDirrection  = 8;
+	_leftDirrection   = 7;
+
 	_rightMotor       = 10;
+	_rightDirrection  = 8;
+
 	_enable           = 4;
 	_fault            = 12;
 
@@ -43,6 +46,8 @@ MotorController::MotorController() {
 	pinMode(_rightMotor,      OUTPUT);
 	pinMode(_enable,          OUTPUT);
 	pinMode(_fault,           INPUT);
+
+	digitalWrite(_enable, HIGH);
 
 }
 
@@ -77,25 +82,21 @@ MotorController::MotorController(int leftD, int leftM, int rightD, int rightM, i
 
 }
 
-MotorController::~MotorController() {
-	delete this;
-}
-
 
 /* Function motor:
  *   char motor ~> which motor to turn on
  *   			   Left motor is indicated by LOWERCASE 'l'
- *   			   right motor is inidicated by LOWERCASE 'r'
+ *   			   right motor is indicated by LOWERCASE 'r'
  *
  *   int pwm ~> speed to turn motor on at
  *   			accepts range of values from -255 to 255
- *   			where negative values are reverese and
- *   			positive valuse are forward
+ *   			where negative values are reverse and
+ *   			positive values are forward
  *
  *   currentDirrection chars:
- *   	F ~> motor is rotating forward and dirrection pin
+ *   	F ~> motor is rotating forward and direction pin
  *   		 is set to HIGH
- *   	R ~> motor is rotating in reverse and dirrection pin
+ *   	R ~> motor is rotating in reverse and direction pin
  *   	     is set to LOW
  *
  */
@@ -104,9 +105,9 @@ void MotorController::motor(char motor, int pwm){
 	//for reverse direction pass in a negative value
 
 	if(digitalRead(_fault) == 0){
-		while(true);
-	} else {
-		digitalWrite(_enable, HIGH);
+		while(true){
+			Serial.println("Stuck in motor command");
+		}
 	}
 
 	if(motor == 'l'){
@@ -142,12 +143,14 @@ void MotorController::motor(char motor, int pwm){
 	}  // end motor B
 }
 
-
+//Reverses direction of motor to stop any inertia motion in the motor
 void MotorController::stop(){
 	int rt = 50;
 
 	if(digitalRead(_fault) == 0){
-			while(true);
+			while(true){
+				Serial.println("Stuck in motor control");
+			}
 		} else {
 			digitalWrite(_enable, HIGH);
 		}

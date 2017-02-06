@@ -5,17 +5,16 @@
  *      Author: grantdeshazer
  */
 
-#ifndef TIMER_H_
-#define TIMER_H_
+#ifndef SETTIMER_H_
+#define SETTIMER_H_
 
 #include <Arduino.h>
 
 namespace std {
 
-class Timer {
+class SetTimer {
 public:
-	Timer();
-	virtual ~Timer();
+	SetTimer();
 
 	void setStart();
 	unsigned long getDelta();
@@ -26,4 +25,4 @@ private:
 
 } /* namespace std */
 
-#endif /* TIMER_H_ */
+#endif /* SETTIMER_H_ */

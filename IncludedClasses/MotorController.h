@@ -3,6 +3,8 @@
  *
  *  Created on: Jan 8, 2017
  *      Author: grantdeshazer
+ *
+ *  See the cpp file for implementation notes
  */
 
 #ifndef MOTORCONTROLLER_H_
@@ -17,7 +19,6 @@ public:
 	MotorController();
 	MotorController(int, int, int, int, int, int);
 
-	virtual ~MotorController();
 
 	void motor(char, int);
 	void stop();
