@@ -13,7 +13,7 @@ Included is a simple calibration script which can be uploaded onto the Arduino. 
 	
 	_gx = _gx * 250.0/32768.0;
 	_angle = (this->arctan2(-_az,-_ay)) - 36; //The 36 here is the adjustment value
-										 //Idealy, when upright the returned angle should be zero
+						  //Idealy, when upright the returned angle should be zero
 
 	Serial.print("  / "); Serial.print(" "); Serial.print(_angle); Serial.print(" /   ");
 
@@ -39,7 +39,7 @@ For the Arduino IDE, start a new Arduino project and paste in the code from Bala
 Create a new folder, named BalanceControl, and drop in all of the files in the IncludedClasses dirrectory except for Wire.
 Compile the program as usual from the main Arduino project window.
 
-##References
+## References
 Kas's project on the Arduino form has a considerable amount of insight into the construction of a balance bot.  I wrote much of this project based on what Kas has posted.  You can find his form post [here](http://forum.arduino.cc/index.php?topic=8871.30).
 
 The MPU6050 library and the I2Cdev library are both [here](https://github.com/jrowberg/i2cdevlib).
