@@ -215,6 +215,8 @@ private:
 
 }imu;
 
+
+
 void setup(){
 	Serial.begin(9600);
 	Serial.println("Hello World");
@@ -242,6 +244,7 @@ void setup(){
 
 }
 
+
 void loop(){
 	float tilt = imu.findAdjustedTilt(0.1);
 
@@ -268,4 +271,5 @@ void loop(){
 	}
 
 	delay(5);
+
 }
